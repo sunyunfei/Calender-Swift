@@ -44,8 +44,8 @@ class CalenderView: UIView,UITableViewDelegate,UITableViewDataSource,UICollectio
         
         let dateComponents:NSDateComponents = NSDateComponents.init()
         dateComponents.month = -1;
-        
-        let newDate:NSDate = NSCalendar.currentCalendar().dateByAddingComponents(dateComponents, toDate: date, options: .WrapComponents)!
+        /*************之前把options设置为WrapComponents，结果年份始终为当前年份，设置为MatchStrictly正常********************/
+        let newDate:NSDate = NSCalendar.currentCalendar().dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
         
         self.showLabelString(newDate)
         //把时间赋予当前date
@@ -62,7 +62,7 @@ class CalenderView: UIView,UITableViewDelegate,UITableViewDataSource,UICollectio
         let dateComponents:NSDateComponents = NSDateComponents.init()
         dateComponents.month = +1;
         
-        let newDate:NSDate = NSCalendar.currentCalendar().dateByAddingComponents(dateComponents, toDate: date, options: .WrapComponents)!
+        let newDate:NSDate = NSCalendar.currentCalendar().dateByAddingComponents(dateComponents, toDate: date, options: .MatchStrictly)!
         
         self.showLabelString(newDate)
         //把时间赋予当前date
