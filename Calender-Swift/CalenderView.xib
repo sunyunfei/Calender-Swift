@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CalenderView" customModule="Calender_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-nn-ldb">
+                    <rect key="frame" x="0.0" y="55" width="320" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbG-qi-X92">
+                            <rect key="frame" x="139" y="9.5" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUK-Fn-1Sv">
+                            <rect key="frame" x="15" y="5" width="34" height="30"/>
+                            <state key="normal" title=" 上月"/>
+                            <connections>
+                                <action selector="clickPreBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="P3q-yR-xCZ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFb-rM-qsO">
+                            <rect key="frame" x="275" y="5" width="30" height="30"/>
+                            <state key="normal" title="下月"/>
+                            <connections>
+                                <action selector="clickNextBtn:" destination="iN0-l3-epB" eventType="touchUpInside" id="l9z-yP-fYO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.98431372549999996" green="0.25490196079999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="WUK-Fn-1Sv" firstAttribute="leading" secondItem="Ulh-nn-ldb" secondAttribute="leading" constant="15" id="59d-7g-zf4"/>
+                        <constraint firstItem="cFb-rM-qsO" firstAttribute="centerY" secondItem="Ulh-nn-ldb" secondAttribute="centerY" id="R2Y-i5-5px"/>
+                        <constraint firstItem="FbG-qi-X92" firstAttribute="centerX" secondItem="Ulh-nn-ldb" secondAttribute="centerX" id="Vff-k6-Ufr"/>
+                        <constraint firstItem="WUK-Fn-1Sv" firstAttribute="centerY" secondItem="Ulh-nn-ldb" secondAttribute="centerY" id="cfs-ld-MqF"/>
+                        <constraint firstItem="FbG-qi-X92" firstAttribute="centerY" secondItem="WUK-Fn-1Sv" secondAttribute="centerY" id="q1R-SW-gEV"/>
+                        <constraint firstAttribute="height" constant="40" id="t9b-dI-A7T"/>
+                        <constraint firstAttribute="trailing" secondItem="cFb-rM-qsO" secondAttribute="trailing" constant="15" id="vsR-ET-gv6"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="utJ-Wb-Y4g">
+                    <rect key="frame" x="0.0" y="357" width="320" height="211"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Kcw-uM-VMD"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="1Hx-G1-tlc"/>
+                    </connections>
+                </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ifr-bI-yLq">
+                    <rect key="frame" x="0.0" y="95" width="320" height="262"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ifr-bI-yLq" secondAttribute="height" multiplier="160:131" id="Rvh-Sb-2YR"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yI6-xH-pv8">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="7Ft-N6-51W"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="4Q6-Jx-nQm"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="utJ-Wb-Y4g" secondAttribute="bottom" id="BCL-bp-Tap"/>
+                <constraint firstAttribute="trailing" secondItem="Ulh-nn-ldb" secondAttribute="trailing" id="Eg6-Pj-2XV"/>
+                <constraint firstAttribute="trailing" secondItem="ifr-bI-yLq" secondAttribute="trailing" id="WNM-ba-Qcl"/>
+                <constraint firstItem="utJ-Wb-Y4g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Yae-rd-TAr"/>
+                <constraint firstItem="Ulh-nn-ldb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="55" id="ZQg-2e-bKo"/>
+                <constraint firstItem="utJ-Wb-Y4g" firstAttribute="top" secondItem="ifr-bI-yLq" secondAttribute="bottom" id="ajT-zY-iRi"/>
+                <constraint firstItem="ifr-bI-yLq" firstAttribute="top" secondItem="Ulh-nn-ldb" secondAttribute="bottom" id="p4w-qN-Ydg"/>
+                <constraint firstItem="ifr-bI-yLq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uDc-15-5Hu"/>
+                <constraint firstAttribute="trailing" secondItem="utJ-Wb-Y4g" secondAttribute="trailing" id="vj1-6I-Jza"/>
+                <constraint firstItem="Ulh-nn-ldb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yD7-IK-RaL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="collectionView" destination="ifr-bI-yLq" id="6nL-nY-hzb"/>
+                <outlet property="showLabel" destination="FbG-qi-X92" id="uP9-G5-oHV"/>
+                <outlet property="tableView" destination="utJ-Wb-Y4g" id="2OK-Gg-dzm"/>
+            </connections>
+            <point key="canvasLocation" x="308" y="328"/>
+        </view>
+    </objects>
+</document>
